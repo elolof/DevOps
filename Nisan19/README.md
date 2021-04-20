@@ -19,7 +19,8 @@ Update işleminden sonra makinede bir user oluşturalım.
 
 `fdisk -l` komutu ile makinedeki diskleri ve partion larını görüntüleyebiliriz. `/dev/sdb` makineye eklediğim 10G disktir. 
 
-```[root@frtest ansible]# fdisk -l
+```
+[root@frtest ansible]# fdisk -l
 
 Disk /dev/sda: 32.2 GB, 32212254720 bytes, 62914560 sectors
 Units = sectors of 1 * 512 = 512 bytes
@@ -47,11 +48,13 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disk /dev/sdb: 10.7 GB, 10737418240 bytes, 20971520 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes```
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+```
 
 `fdisk /dev/sdb` komutu ile disk partition oluşturabiliriz.
 
-```[root@frtest ansible]# fdisk /dev/sdb
+```
+[root@frtest ansible]# fdisk /dev/sdb
 
 Welcome to fdisk (util-linux 2.23.2).
 
@@ -76,11 +79,13 @@ Command (m for help): w
 The partition table has been altered!
 
 Calling ioctl() to re-read partition table.
-Syncing disks.```
+Syncing disks.
+```
 
 Aşağıda `/dev/sdb1` partition oluştuğunu görebiliriz.
 
-```[root@frtest ansible]# fdisk -l
+```
+[root@frtest ansible]# fdisk -l
 
 Disk /dev/sda: 32.2 GB, 32212254720 bytes, 62914560 sectors
 Units = sectors of 1 * 512 = 512 bytes
@@ -113,7 +118,8 @@ Disk label type: dos
 Disk identifier: 0x76d6139d
 
    Device Boot      Start         End      Blocks   Id  System
-/dev/sdb1            2048    18876415     9437184   83  Linux```
+/dev/sdb1            2048    18876415     9437184   83  Linux
+```
 
 Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini oluşturduktan sonra `mkfs.ext4 /dev/sdb1 <mount_directory>` komutu ile ilgili yere mount edilmelidir. 
 
