@@ -10,7 +10,7 @@ Centos makine kurulumu yapıldıktan sonra yüklü olan paketlerin güncellemesi
 
 Update işleminden sonra makinede bir user oluşturalım.
 
-`adduser user.name & passwd user.name`
+`adduser user.name && passwd user.name`
 
 
 ###Case1.3
