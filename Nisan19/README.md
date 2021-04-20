@@ -1,19 +1,19 @@
-##Case1
+## Case1
 
-###Case1.1
+### Case1.1
 
 Centos makine kurulumu yapıldıktan sonra yüklü olan paketlerin güncellemesi yapılır. Centos paket manager olan yum ile bu işlem yapılabilir. `-y` parametresini vererek komutu çalıştırdığımızda yapacağı işlemleri kontrol edemeyebiliriz, update işleminin öneminden dolayı `-y` parametresi göndermeden işlem yapılmıştır.
 
    `yum update `
 
-###Case1.2
+### Case1.2
 
 Update işleminden sonra makinede bir user oluşturalım.
 
 `adduser user.name && passwd user.name`
 
 
-###Case1.3
+### Case1.3
 
 `su user.name`
 
@@ -123,7 +123,7 @@ Disk identifier: 0x76d6139d
 
 Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini oluşturduktan sonra `mkfs.ext4 /dev/sdb1 <mount_directory>` komutu ile ilgili yere mount edilmelidir. Burada hangi file system ile mount edileceği kullanıcının seçimidir. xfs, ext3, ext4 etc. 
 
-###Case1.4
+### Case1.4
 
 ```
  mkdir /opt/bootcamp
@@ -131,10 +131,10 @@ Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini o
  cd /home/user.name/
  ```
  
-###Case1.5
+### Case1.5
 
 `elolof=$(find / -name bootcamp.txt) &&  mv $elolof /root/bootcamp/`
 
 
-##Case2
+## Case2
 
