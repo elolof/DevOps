@@ -45,7 +45,7 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 
-**Disk /dev/sdb: 10.7 GB, 10737418240 bytes, 20971520 sectors**
+Disk /dev/sdb: 10.7 GB, 10737418240 bytes, 20971520 sectors
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
@@ -121,12 +121,19 @@ Disk identifier: 0x76d6139d
 /dev/sdb1            2048    18876415     9437184   83  Linux
 ```
 
-Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini oluşturduktan sonra `mkfs.ext4 /dev/sdb1 <mount_directory>` komutu ile ilgili yere mount edilmelidir. 
+Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini oluşturduktan sonra `mkfs.ext4 /dev/sdb1 <mount_directory>` komutu ile ilgili yere mount edilmelidir. Burada hangi file system ile mount edileceği kullanıcının seçimidir. xfs, ext3, ext4 etc. 
 
 ###Case1.4
 
-
+```
+ mkdir /opt/bootcamp
+ touch /opt/bootcamp/bootcamp.txt && echo "merhaba trendyol" > /opt/bootcamp/bootcamp.txt
+ cd /home/user.name/
+ ```
+ 
 ###Case1.5
+
+`elolof=$(find / -name bootcamp.txt) &&  mv $elolof /root/bootcamp/`
 
 
 ##Case2
