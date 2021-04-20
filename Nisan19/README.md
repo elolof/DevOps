@@ -15,12 +15,14 @@ Update işleminden sonra makinede bir user oluşturalım.
 
 ### Case1.3
 
+Oluşturulan kullanıcının aşağıdaki işlemleri yapabilmesi için `/etc/sudoers` dosyasına eklenmesi gerekmektedir.
+
 `su user.name`
 
-`fdisk -l` komutu ile makinedeki diskleri ve partion larını görüntüleyebiliriz. `/dev/sdb` makineye eklediğim 10G disktir. 
+`sudo fdisk -l` komutu ile makinedeki diskleri ve partion larını görüntüleyebiliriz. `/dev/sdb` makineye eklediğim 10G disktir. 
 
 ```
-[root@frtest ansible]# fdisk -l
+[root@frtest ansible]# sudo fdisk -l
 
 Disk /dev/sda: 32.2 GB, 32212254720 bytes, 62914560 sectors
 Units = sectors of 1 * 512 = 512 bytes
@@ -51,10 +53,10 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 ```
 
-`fdisk /dev/sdb` komutu ile disk partition oluşturabiliriz.
+`sudo fdisk /dev/sdb` komutu ile disk partition oluşturabiliriz.
 
 ```
-[root@frtest ansible]# fdisk /dev/sdb
+[root@frtest ansible]# sudo fdisk /dev/sdb
 
 Welcome to fdisk (util-linux 2.23.2).
 
@@ -81,11 +83,11 @@ The partition table has been altered!
 Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
-
+------------------------------Verification------------------------------------
 Aşağıda `/dev/sdb1` partition oluştuğunu görebiliriz.
 
 ```
-[root@frtest ansible]# fdisk -l
+[root@frtest ansible]# sudo fdisk -l
 
 Disk /dev/sda: 32.2 GB, 32212254720 bytes, 62914560 sectors
 Units = sectors of 1 * 512 = 512 bytes
@@ -121,19 +123,22 @@ Disk identifier: 0x76d6139d
 /dev/sdb1            2048    18876415     9437184   83  Linux
 ```
 
-Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini oluşturduktan sonra `mkfs.ext4 /dev/sdb1 <mount_directory>` komutu ile ilgili yere mount edilmelidir. Burada hangi file system ile mount edileceği kullanıcının seçimidir. xfs, ext3, ext4 etc. 
+Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini oluşturduktan sonra `sudo mkfs.ext4 /dev/sdb1 <mount_directory>` komutu ile ilgili yere mount edilmelidir. Burada hangi file system ile mount edileceği kullanıcının seçimidir. xfs, ext3, ext4 etc. 
 
 ### Case1.4
 
 ```
- mkdir /opt/bootcamp
- touch /opt/bootcamp/bootcamp.txt && echo "merhaba trendyol" > /opt/bootcamp/bootcamp.txt
- cd /home/user.name/
+ sudo mkdir /opt/bootcamp
+ sudo touch /opt/bootcamp/bootcamp.txt
+ sudo echo "merhaba trendyol" > /opt/bootcamp/bootcamp.txt
  ```
  
 ### Case1.5
 
-`elolof=$(find / -name bootcamp.txt) &&  mv $elolof /root/bootcamp/`
+```
+cd /home/user.name/
+sudo find / -name bootcamp.txt -exec mv '{}' /root/bootcamp/ \; 
+```
 
 
 ## Case2
