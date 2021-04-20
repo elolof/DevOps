@@ -1,15 +1,15 @@
-##Case1##
-###Case1.1###
+##Case1
+###Case1.1
 Centos makine kurulumu yapıldıktan sonra yüklü olan paketlerin güncellemesi yapılır. Centos paket manager olan yum ile bu işlem yapılabilir. -y parametresini vererek komutu çalıştırdığımızda yapacağı işlemleri kontrol edemeyebiliriz, update işleminin öneminden dolayı -y parametresi göndermeden işlem yapılmıştır.
 yum update 
 
-###Case1.2###
+###Case1.2
 
 Update işleminden sonra makinede bir user oluşturalım.
 adduser user.name
 
 
-###Case1.3###
+###Case1.3
 `fdisk -l` komutu ile makinedeki diskleri ve partion larını görüntüleyebiliriz. `/dev/sdb` makineye eklediğim 10G disktir. 
 `[root@frtest ansible]# fdisk -l
 
@@ -108,8 +108,8 @@ Disk identifier: 0x76d6139d
 
 Partition oluştuktan sonra bu diski mount etmeliyiz. Mount edeceğimiz dizini oluşturduktan sonra `mkfs.ext4 /dev/sdb1 <mount_directory>` komutu ile ilgili yere mount edilmelidir. 
 
-###Case1.4###
-###Case1.5###
+###Case1.4
+###Case1.5
 
-##Case2##
+##Case2
 
