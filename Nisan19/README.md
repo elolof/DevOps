@@ -45,7 +45,7 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 
-Disk /dev/sdb: 10.7 GB, 10737418240 bytes, 20971520 sectors
+**Disk /dev/sdb: 10.7 GB, 10737418240 bytes, 20971520 sectors**
 Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
