@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
 
   #Elif Service
@@ -9,15 +9,23 @@ services:
     container_name: elif-app
     restart: unless-stopped
     ports:
-      - "80:5000"
+      - '5000:5000'
     depends_on:
      - elif-sql
+
+  nginx:
+    image: nginx:stable-alpine
+    container_name: elif-nginx
+    ports:
+      - '80:80'
+    depends_on:
+      - elif-app
+    volumes:
+      - ./nginx:/etc/nginx/
 
   #MySQL Service
   elif-sql:
     image: mysql
-    build:
-      context: .
     container_name: elif-sql
     restart: unless-stopped
     ports:
