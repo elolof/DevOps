@@ -143,6 +143,11 @@ sudo find / -name bootcamp.txt -exec mv '{}' /root/bootcamp/ \;
 
 ## Case2
 
+pip install docker
+
+pip install 'docker-py>=1.7.0'
+
+
 ```
 ansible-playbook -i hosts app-nginx.yml
 
