@@ -1,0 +1,9 @@
+FROM python:3
+
+ADD testi.py /
+
+ADD index.html /templates/
+
+RUN pip3 install Flask && pip install flask_mysqldb
+
+CMD [ "python", "./testi.py" ]
