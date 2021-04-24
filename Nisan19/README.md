@@ -84,6 +84,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 ------------------------------Verification------------------------------------
+
 Aşağıda `/dev/sdb1` partition oluştuğunu görebiliriz.
 
 ```
@@ -142,10 +143,6 @@ sudo find / -name bootcamp.txt -exec mv '{}' /root/bootcamp/ \;
 
 
 ## Case2
-
-pip install docker
-
-pip install 'docker-py>=1.7.0'
 
 
 ```
