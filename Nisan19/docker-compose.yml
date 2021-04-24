@@ -1,0 +1,29 @@
+version: '3'
+services:
+
+  #Elif Service
+  elif-app:
+    build:
+      context: .
+      dockerfile: Dockerfile-app
+    container_name: elif-app
+    restart: unless-stopped
+    ports:
+      - "80:5000"
+    depends_on:
+     - elif-sql
+
+  #MySQL Service
+  elif-sql:
+    image: mysql
+    build:
+      context: .
+    container_name: elif-sql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: sizes
+      MYSQL_ROOT_PASSWORD: Elolof19
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
