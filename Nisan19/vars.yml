@@ -1,3 +1,4 @@
-mysql_user
-mysql_pass
-mysql_db
+---
+mysql_user: root
+mysql_pass: Elolof19
+mysql_db: sizes
