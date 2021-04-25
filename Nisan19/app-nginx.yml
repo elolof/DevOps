@@ -3,7 +3,7 @@
   hosts: docker
   become: true
   vars_files:
-    - vars/default.yml
+    - vars.yml
 
   tasks:
     - name: Add Docker repo
@@ -48,4 +48,16 @@
         - pyyaml
         - docker-py
         - docker-compose       
+
+    - name: Copy docker-compose file
+      template:
+        src: docker-compose.yml
+        dest: /root/docker-compose.yml
+
+#    - name: Configure app with docker-compose
+#      docker_compose:
+#        project_src: /root
+
+    - name: compose file
+      command: docker-compose up -d
 
