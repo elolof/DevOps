@@ -144,6 +144,21 @@ sudo find / -name bootcamp.txt -exec mv '{}' /root/bootcamp/ \;
 
 ## Case2
 
+`app-nginx.yml` playbook'unda RedHat/Centos için docker, docker-compose kurulumlarını yapacak ve ilgili app dosyalarını docker env üzerinde çalıştırarak aşamalar bulunuyor. App için gerekli olan Flask, Python, Nginx, MySQL docker env üzerinde çalışmaktadır.
+
+Nginx ve MySQL için gerekli olan conf volume olarak verilmiştir.
+
+```
+    volumes:
+      - ./nginx:/etc/nginx/
+```
+
+```
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+```
+
+Playbook'u çalıştırmadan önce kendi db isminizi ve parolalarınızı değiştirecekseniz hem `setup.sql` , `docker-compose.yml` ve `testi.py` dosyasında değiştirmeniz gerekecektir.
 
 ```
 ansible-playbook -i hosts app-nginx.yml
