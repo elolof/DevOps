@@ -51,8 +51,11 @@
 
     - name: Copy docker-compose file
       template:
-        src: docker-compose.yml
-        dest: /root/docker-compose.yml
+        src: {{item.src}}
+        dest: {{item.dest}}
+      with_items:
+        - { src: "docker-compose.yml", dest: "/root/docker-compose.yml" }
+        - { src: "Dockerfile", dest: "/root/docker-compose.yml" }
 
 #    - name: Configure app with docker-compose
 #      docker_compose:
