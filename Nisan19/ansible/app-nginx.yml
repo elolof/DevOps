@@ -2,8 +2,6 @@
 - name: Install docker
   hosts: docker
   become: true
-  vars_files:
-    - vars.yml
 
   tasks:
     - name: Add Docker repo
@@ -49,13 +47,10 @@
         - docker-py
         - docker-compose       
 
-    - name: Copy docker-compose file
-      template:
-        src: {{item.src}}
-        dest: {{item.dest}}
-      with_items:
-        - { src: "docker-compose.yml", dest: "/root/docker-compose.yml" }
-        - { src: "Dockerfile", dest: "/root/docker-compose.yml" }
+    - name: Copy necessary files
+      copy:
+        src: app
+        dest: /root/app
 
 #    - name: Configure app with docker-compose
 #      docker_compose:
