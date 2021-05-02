@@ -7,18 +7,18 @@
     - name: Add Docker repo
       get_url:
         url: https://download.docker.com/linux/centos/docker-ce.repo
-        dest: /etc/yum.repos.d/docer-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
 
     - name: Enable Docker Edge repo
       ini_file:
-        dest: /etc/yum.repos.d/docer-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
         section: 'docker-ce-edge'
         option: enabled
         value: 0
 
     - name: Enable Docker Test repo
       ini_file:
-        dest: /etc/yum.repos.d/docer-ce.repo
+        dest: /etc/yum.repos.d/docker-ce.repo
         section: 'docker-ce-test'
         option: enabled
         value: 0
@@ -30,8 +30,8 @@
 
     - name: get docker-compose
       get_url:
-      url: "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-Linux-x86_64"
-      dest: /usr/local/bin/docker-compose
+        url: "https://github.com/docker/compose/releases/download/1.9.0/docker-compose-Linux-x86_64"
+        dest: /usr/local/bin/docker-compose
 
     - name: Start Docker service
       service:
